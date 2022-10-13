@@ -8,7 +8,7 @@ const getCity = async (city) => {
   if (val == "") {
     console.log("no input");
   }
-
+//fetching the data
   await fetch(`https://weatherdbi.herokuapp.com/data/weather/${val}`)
     .then((res) => res.json())
     .then((data) => {
@@ -31,7 +31,7 @@ const getCity = async (city) => {
       <div>
     `;
       weatherContainer.insertAdjacentHTML("beforeend", html);
-      //using the push method to increment the number of elements iterated so we can keep the count in the click array
+      //using the push method to increment the number of elements iterated so we can keep the count in the data array
       clicked.push(val);
       if (clicked.length >= 8) {
         weatherContainer.removeChild(weatherContainer.firstElementChild);
