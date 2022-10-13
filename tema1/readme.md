@@ -1,0 +1,1 @@
+Pentru tema 1 am ales sa construiesc o aplicatie mica si sa folosesc exercitii in exercises.js pentru a explica si restul conceptelor cerute in primul task.
