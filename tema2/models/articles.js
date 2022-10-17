@@ -1,9 +1,7 @@
-const { builtinModules } = require('module');
 const mongoose = require('mongoose');
-const { isModuleNamespaceObject } = require('util/types');
 const Schema = mongoose.Schema;
 
-//create articles schema and model
+//create articles schema and a model for articles
 
 const ArticleSchema = new Schema({
     Article_no: {

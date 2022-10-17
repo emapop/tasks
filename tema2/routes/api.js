@@ -22,9 +22,7 @@ router.get('/articles/new', (req, res, next) => {
 
 // add a new rticle to the db
 router.post('/articles', (req, res, next) => {
-    /* var article = new Article(req.body);
-    article.save(); */
-    //we are calling mongoose and post a mongoose model
+    //post a mongoose model into the db
     Article.create(req.body).then((article) => {
         res.send(article);
     }).catch(next)
@@ -32,9 +30,11 @@ router.post('/articles', (req, res, next) => {
 
 // update the article in the db
 router.put('/articles/:id', (req, res, next) => {
-    Article.findByIdAndUpdate({_id: req.params.id}, req.body).then((article) => {
-        res.send(article);
-    })
+    Article.findByIdAndUpdate({_id: req.params.id}, req.body).then(() => {
+        Article.findOne({_id: req.params.id}).then((article) => {
+            res.send(article);
+        });
+    });
 });
 
 //delete an article from the db
