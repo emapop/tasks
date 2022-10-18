@@ -12,7 +12,7 @@ router.get('/articles', (req, res, next) => {
     })
 });
 router.get('/articles/new', (req, res, next) => {
-    Article.find({Article_no: 'my first article'}, (err, article) =>{
+    Article.find({_id: '634c1233699e8154ad821538'}, (err, article) =>{
         if(err){res.send(err)}
         else {
             res.send(article);
