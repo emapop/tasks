@@ -4,7 +4,7 @@ const TokensSchema = new Schema({
     Token_body: {
         type: String
     }, 
-    Article: { type: mongoose.Schema.Types.ObjectId, ref: 'article', required: true }
+    Article:[{ type: mongoose.Schema.Types.ObjectId, ref: 'article', required: true }]
 });
 
 // Assigning the collection

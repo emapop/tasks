@@ -83,7 +83,7 @@ router.delete('/categories/:id', (req, res, next) => {
  //token get
 
  router.get('/tokens', (req, res, next) => {
-    Tokens.find({body: req.body}).populate({path: 'Article'}).then((category)=>{
+    Tokens.find({"Token_body": {$regex: 'article', $options: "i"}}).populate({path: 'Article'}).then((category)=>{
         res.send(category)
     }).catch(err => console.log(err));
 
