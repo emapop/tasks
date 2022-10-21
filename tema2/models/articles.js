@@ -42,6 +42,11 @@ const ArticleSchema = new Schema({
     },
     Article_category: {
         type: String
+    },
+    Tokens: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'tokens',
+        required: true,
     }
 });
 

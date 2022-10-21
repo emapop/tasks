@@ -8,19 +8,13 @@ const toId = mongoose.Types.ObjectId;
 
 //get a list of articles from de db
 router.get('/articles', (req, res, next) => {
-    Article.find({body: req.body}, (err, article) =>{
-        if(err){res.send(err)}
-        else {
+    Article.find({body: req.body}).populate({path: 'Tokens'}).then((article) =>{
             res.send(article);
-        }
     })
 });
 router.get('/articles/new', (req, res, next) => {
-    Article.find({_id: '634c1233699e8154ad821538'}, (err, article) =>{
-        if(err){res.send(err)}
-        else {
+    Article.find({_id:'6352b5ace94baec7672589c0'}).then((article) =>{
             res.send(article);
-        }
     })
 });
 
@@ -83,7 +77,7 @@ router.delete('/categories/:id', (req, res, next) => {
  //token get
 
  router.get('/tokens', (req, res, next) => {
-    Tokens.find({"Token_body": {$regex: 'article', $options: "i"}}).populate({path: 'Article'}).then((category)=>{
+    Tokens.find({body: req.body}).then((category)=>{
         res.send(category)
     }).catch(err => console.log(err));
 
