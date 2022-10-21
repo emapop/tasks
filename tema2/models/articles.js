@@ -40,7 +40,14 @@ const ArticleSchema = new Schema({
     Article_citations: {
         type: String
     },
+    Article_category: {
+        type: String
+    }
 });
 
+
+// Assigning the collections to variables
 const Article = mongoose.model('article', ArticleSchema);
+
+// Exporting the Collections
 module.exports = Article;
